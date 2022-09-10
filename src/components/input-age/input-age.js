@@ -7,19 +7,20 @@ const InputWrapper = styled('input')`
     color: ${props => props.isValid ? 'green' : 'red'};
 `
 
-export const InputAge = () => {
+export const InputAge = ({updateData}) => {
     let refAge = React.createRef();
     const [isValid, setIsValid] = useState(false);
 
-    const changeHandler = (e) => {
+    const changeHandler = () => {
         const MIN_NUMBER = 0;
         const MAX_NUMBER = 150;
 
         let val = refAge.current.value;
         
-        if (val >= MIN_NUMBER && val <= MAX_NUMBER)
+        if (val >= MIN_NUMBER && val <= MAX_NUMBER){
             setIsValid(true);
-        else
+            updateData(val);
+        } else
             setIsValid(false);
     }
 
