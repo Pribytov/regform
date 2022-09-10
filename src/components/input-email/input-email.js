@@ -7,18 +7,19 @@ const InputWrapper = styled('input')`
     color: ${props => props.isValid ? 'green' : 'red'};
 `
 
-export const InputEmail = () => {
+export const InputEmail = ({updateData}) => {
     let refEmail = React.createRef();
     const [isValid, setIsValid] = useState(false);
 
-    const changeHandler = (e) => {
+    const changeHandler = () => {
         const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
         
         let val = refEmail.current.value;
 
-        if (EMAIL_REGEXP.test(val))
+        if (EMAIL_REGEXP.test(val)){
             setIsValid(true);
-        else
+            updateData(val);
+        } else
             setIsValid(false);
         console.log(isValid);
     }
