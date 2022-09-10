@@ -10,10 +10,21 @@ const InputWrapper = styled('input')`
 
 export const InputDate = ({updateData}) => {
     let refDate = React.createRef();
+    const [isValid, setIsValid] = useState(false);
+    let minDate = moment().format('YYYY-MM-DD');
+    let maxDate = moment().add(30, 'day').format('YYYY-MM-DD');
 
     const changeHandler = () => {
         let val = refDate.current.value;
-        updateData(val);
+
+        if (moment(val).isBefore(minDate) ||
+                moment(val).isAfter(maxDate)){
+            updateData(null);
+            setIsValid(false);
+        } else {
+            updateData(val);
+            setIsValid(true);
+        }
     }
 
     return (
@@ -24,9 +35,9 @@ export const InputDate = ({updateData}) => {
                 required
                 onChange={changeHandler}
                 ref={refDate}
-                readonly='true'
-                min={moment().format('YYYY-MM-DD')}
-                max={moment().add(30, 'day').format('YYYY-MM-DD')}
+                min={minDate}
+                max={maxDate}
+                isValid={isValid}
             />
         </div>
     );
