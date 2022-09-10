@@ -28,9 +28,9 @@ export const InputAge = ({updateData}) => {
 
     return (
         <div className='input-Age'>
+            <label>Введите возраст</label>
             <InputWrapper
                 type='number'
-                placeholder='Введите возраст'
                 required
                 onChange={changeHandler}
                 ref={refAge}
