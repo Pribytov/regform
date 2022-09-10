@@ -8,19 +8,12 @@ const InputWrapper = styled('input')`
     color: ${props => props.isValid ? 'green' : 'red'};
 `
 
-export const InputDate = () => {
+export const InputDate = ({updateData}) => {
     let refDate = React.createRef();
-    const [isValid, setIsValid] = useState(false);
 
-    const changeHandler = (e) => {
-        const MIN_WORD_NUMBER = 2;
-
+    const changeHandler = () => {
         let val = refDate.current.value;
-
-        if (val.trim().split(/ +(?:\S)/).length >= MIN_WORD_NUMBER)
-            setIsValid(true);
-        else
-            setIsValid(false);
+        updateData(val);
     }
 
     return (
@@ -31,9 +24,9 @@ export const InputDate = () => {
                 required
                 onChange={changeHandler}
                 ref={refDate}
+                readonly='true'
                 min={moment().format('YYYY-MM-DD')}
                 max={moment().add(30, 'day').format('YYYY-MM-DD')}
-                isValid={isValid}
             />
         </div>
     );
