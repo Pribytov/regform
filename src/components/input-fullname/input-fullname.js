@@ -7,18 +7,19 @@ const InputWrapper = styled('input')`
     color: ${props => props.isValid ? 'green' : 'red'};
 `
 
-export const InputFullName = () => {
+export const InputFullName = ({updateData}) => {
     let refFullname = React.createRef();
     const [isValid, setIsValid] = useState(false);
 
-    const changeHandler = (e) => {
+    const changeHandler = () => {
         const MIN_WORD_NUMBER = 2;
 
-        let val = refFullname.current.value;
+        let val = refFullname.current.value.trim();
 
-        if (val.trim().split(/ +(?:\S)/).length >= MIN_WORD_NUMBER)
+        if (val.split(/ +(?:\S)/).length >= MIN_WORD_NUMBER){
             setIsValid(true);
-        else
+            updateData(val);
+        } else
             setIsValid(false);
         console.log(isValid);
     }
