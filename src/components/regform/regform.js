@@ -10,9 +10,6 @@ import { Dadata } from '../../components/dadata';
 import { sendRegData } from '../../redux/reg/reducer';
 import './regform.css';
 
-
-import { useSelector } from 'react-redux';
-
 export const RegForm  = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -26,17 +23,38 @@ export const RegForm  = () => {
         timespan: null
     };
 
+    const validateInputs = () => {
+        if (regState.fullName == null) {
+            alert('Введите корректное значение ФИО');
+            return false;
+        } else if (regState.age === 0) {
+            alert('Введите корректное значение возраста');
+            return false;
+        } else if (regState.email == null) {
+            alert('Введите корректное значение email');
+            return false;
+        } else if (regState.date == null) {
+            alert('Введите корректное значение даты');
+            return false;
+        } else if (regState.address == null) {
+            alert('Введите корректное значение адреса');
+            return false;
+        } else if (regState.timespan == null) {
+            alert('Введите корректное значение времени приема');
+            return false;
+        }
+        return true;
+    }
+
     const clickHandler = (e) => {
         e.preventDefault();
-        //debugger
-        console.log(regState);
-        debugger;
+
+        if (!validateInputs())
+            return;
+
         dispatch(sendRegData(regState));;
-        debugger;
 
         navigate('/outputform');
-
-        //return false;
     }
 
     const updateFullName = (value) => {
@@ -65,7 +83,7 @@ export const RegForm  = () => {
 
     return (
         <div className='regform'>
-            <form onSubmit="return Complete();">
+            <form>
                 <label>Запись на прием ко врачу:</label>
                 <InputFullName updateData={updateFullName}/>
                 <InputAge updateData={updateAge}/>

@@ -17,11 +17,12 @@ export const InputFullName = ({updateData}) => {
         let val = refFullname.current.value.trim();
 
         if (val.split(/ +(?:\S)/).length >= MIN_WORD_NUMBER){
-            setIsValid(true);
             updateData(val);
-        } else
+            setIsValid(true);
+        } else {
+            updateData(null);
             setIsValid(false);
-        console.log(isValid);
+        }
     }
 
     return (

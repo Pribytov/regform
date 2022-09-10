@@ -18,10 +18,12 @@ export const InputAge = ({updateData}) => {
         let val = refAge.current.value;
         
         if (val >= MIN_NUMBER && val <= MAX_NUMBER){
-            setIsValid(true);
             updateData(val);
-        } else
+            setIsValid(true);
+        } else {
+            updateData(0);
             setIsValid(false);
+        }
     }
 
     return (

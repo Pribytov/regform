@@ -17,11 +17,12 @@ export const InputEmail = ({updateData}) => {
         let val = refEmail.current.value;
 
         if (EMAIL_REGEXP.test(val)){
-            setIsValid(true);
             updateData(val);
-        } else
+            setIsValid(true);
+        } else {
+            updateData(null);
             setIsValid(false);
-        console.log(isValid);
+        }
     }
 
     return (
