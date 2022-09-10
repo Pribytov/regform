@@ -2,14 +2,7 @@ import React from 'react';
 import Select from 'react-select';
 import './input-time.css';
 
-
-
-export const InputTime = () => {
-    <datelist id='timelist'>
-        <option value='08:00-09.00'/>
-        <option value='09:00-10.00'/>
-    </datelist>
-
+export const InputTime = ({updateData}) => {
     const TimeSpansList = [
         {label: '08:00-09:00'},
         {label: '09:00-10:00'},
@@ -25,12 +18,18 @@ export const InputTime = () => {
         {label: '19:00-20:00'}
     ];
 
+    const changeHandler = (e) => {
+        updateData(e.label);
+    }
+
     return (
         <div className='input-Time'>
             <Select
                 options={TimeSpansList}
                 placeholder="Выберите время приема"
                 required
+                onChange={changeHandler}
+                readOnly = 'true'
             />
         </div>
     );
