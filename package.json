@@ -1,6 +1,9 @@
 {
   "name": "regform",
   "version": "0.1.0",
+  "engines": {
+    "node": "18.1.0"
+  },
   "private": true,
   "homepage": "https://pribytov.github.io/regform/",
   "dependencies": {
