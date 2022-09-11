@@ -1,11 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useState } from 'react';
 import './input-age.css';
-
-const InputWrapper = styled('input')`
-    color: ${props => props.isValid ? 'green' : 'red'};
-`
+import '../regform/regform.css';
 
 export const InputAge = ({updateData}) => {
     let refAge = React.createRef();
@@ -29,7 +25,8 @@ export const InputAge = ({updateData}) => {
     return (
         <div className='input-Age'>
             <label>Введите возраст</label>
-            <InputWrapper
+            <input
+                className={isValid ? `valid-input` : `invalid-input`}
                 type='number'
                 required
                 onChange={changeHandler}

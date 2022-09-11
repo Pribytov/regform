@@ -1,14 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useState } from 'react';
-import './input-fullname.css';
-
-const InputWrapper = styled('input')`
-    color: ${props => props.isValid ? 'green' : 'red'};
-`
+import '../regform/regform.css';
 
 export const InputFullName = ({updateData}) => {
-    let refFullname = React.createRef();
+    const refFullname = React.useRef();
     const [isValid, setIsValid] = useState(false);
 
     const changeHandler = () => {
@@ -27,7 +22,8 @@ export const InputFullName = ({updateData}) => {
 
     return (
         <div className='input-fullname'>
-            <InputWrapper
+            <input
+                className={isValid ? `valid-input` : `invalid-input`}
                 type='text'
                 placeholder='Введите ФИО'
                 required

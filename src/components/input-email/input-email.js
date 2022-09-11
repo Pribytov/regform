@@ -1,14 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useState } from 'react';
 import './input-email.css';
-
-const InputWrapper = styled('input')`
-    color: ${props => props.isValid ? 'green' : 'red'};
-`
+import '../regform/regform.css';
 
 export const InputEmail = ({updateData}) => {
-    let refEmail = React.createRef();
+    let refEmail = React.useRef();
     const [isValid, setIsValid] = useState(false);
 
     const changeHandler = () => {
@@ -27,7 +23,8 @@ export const InputEmail = ({updateData}) => {
 
     return (
         <div className='input-Email'>
-            <InputWrapper
+            <input
+                className={isValid ? `valid-input` : `invalid-input`}
                 type='email'
                 placeholder='Введите email'
                 required
