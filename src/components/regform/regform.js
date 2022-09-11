@@ -52,7 +52,7 @@ export const RegForm  = () => {
         if (!validateInputs())
             return;
 
-        dispatch(sendRegData(regState));;
+        dispatch(sendRegData(regState));
 
         navigate('/outputform');
     }

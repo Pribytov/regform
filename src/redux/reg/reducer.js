@@ -12,7 +12,6 @@ const regSlice = createSlice({
     },
     reducers: {
         sendRegData: (state, action) => {
-            debugger;
             state.fullName = action.payload.fullName;
             state.age = action.payload.age;
             state.email = action.payload.email;

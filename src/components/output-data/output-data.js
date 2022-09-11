@@ -8,7 +8,6 @@ import './output-data.css';
 export const OutData = () => {
     const reg = useSelector(state=>state.reg)
 
-    debugger;
     const regTranslit = translitConvert(
         `${reg.fullName} \n
         ${reg.age} \n
@@ -17,7 +16,6 @@ export const OutData = () => {
         ${reg.address} \n
         ${reg.timespan}`
     );
-    debugger;
 
     return (
         <div className='input-Age'>
