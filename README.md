@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+Тестовое задание.SPA приложение для записи на прием к врачу на React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Проект доступен по адресу: https://pribytov.github.io/regform/
 
-## Available Scripts
+![Image text](https://github.com/Pribytov/regform/blob/640098a4c98d25735f0f193528b3b670d90abbc1/regform.png)
 
-In the project directory, you can run:
+Использованы технологии: HTML, CSS, JS, React, Redux(redux-toolkit)
 
-### `npm start`
+React - функциональные компоненты.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Стор - redux-toolkit, хуки(useSelector, useDispatch)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Маршрутизация - react-router v6, хук useNavigate.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Описание задания: 
 
-### `npm run build`
+Сделать SPA приложение для записи на прием к врачу на React/Vue.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Использовать библиотеки: 
+    • Bootstrap (Vue-Bootstrap/React-Bootstrap) или верстка без UI-библиотек
+    • Поиск адресов с помощью Dadata (https://dadata.ru/api/suggest/address/)
+    • Vue Router/React Router
+    • Vuex/Redux
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+На главной странице отобразить форму из 5 полей:
+    • Ф.И.О — текст (поле обязательно, обязательно наличие 2-х слов);
+    • Возраст — число (поле обязательно, min: 0, max: 150);
+    • Email; — текст (поле обязательно, валидация email);
+    • Дата записи — дата - формат ДД.ММ.ГГГГ —
+ (поле обязательно, минимальная дата - сегодня, максимальная дата - 1 месяц вперед от сегодня)
+    • Город проживания + улица — использовать поиск\подсказки Dadata;
+    • Выбор времени: select из часовых промежутков, например 09:00-10:00. Обязательно к выбору; 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+    • Поле Dadata оформить в виде отдельного компонента.
+    • Данные и состояние хранить в Vuex/Redux
+    • Валидация каждого поля на blur/change
+    • Валидация всей формы при нажатии кнопки «Записаться»
+    • В случае успешной валидации происходит переход на другую страницу в которой показана вся информация из формы записи транслитом английскими буквами
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Важно: не нужно обращать внимания на красоты и UI при реализации. Использования простого Boostrap вполне хватит.
